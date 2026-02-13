@@ -1,0 +1,23 @@
+{
+  "business_name": "Legends Sports Bar",
+  "contact_name": "",
+  "contact_email": "",
+  "phone": "(562) 433-5743",
+  "address": "5236 E 2nd St",
+  "city": "Long Beach",
+  "state": "CA",
+  "plan": "starter",
+  "platforms": {
+    "yelp": "https://www.yelp.com/biz/legends-long-beach",
+    "google_maps": "Legends Sports Bar Long Beach CA",
+    "tripadvisor": "https://www.tripadvisor.com/Restaurant_Review-g32648-d2343681-Reviews-Legends-Long_Beach_California.html",
+    "facebook": "https://www.facebook.com/legendslongbeach/"
+  },
+  "competitors": [],
+  "brand_voice": "Friendly, casual sports bar vibe. Proud of being 'The First Modern Sports Bar in America.' Address concerns with warmth and invite guests back. Keep it real — not corporate.",
+  "owner_name": "",
+  "common_responses": {},
+  "started": "2026-02-13",
+  "last_scan": "",
+  "status": "demo"
+}

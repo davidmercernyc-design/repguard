@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Review Digest — Legends Sports Bar</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f4f4f5;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+        .email-wrapper {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+        .email-body {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        /* Header */
+        .email-header {
+            background: linear-gradient(135deg, #0a0f1c, #1a2035);
+            padding: 32px 32px 28px;
+            text-align: center;
+        }
+        .email-header .logo {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #3b82f6;
+            margin-bottom: 16px;
+        }
+        .email-header h1 {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .email-header .date {
+            color: #9ca3af;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            background: #f8fafc;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 16px 8px;
+            border-right: 1px solid #e5e7eb;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-item .num {
+            font-size: 24px;
+            font-weight: 800;
+        }
+        .stat-item .num.red { color: #ef4444; }
+        .stat-item .num.yellow { color: #f59e0b; }
+        .stat-item .num.green { color: #22c55e; }
+        .stat-item .num.blue { color: #3b82f6; }
+        .stat-item .lbl {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6b7280;
+            margin-top: 2px;
+        }
+
+        /* Content */
+        .content { padding: 28px 32px; }
+
+        .greeting {
+            font-size: 15px;
+            color: #374151;
+            margin-bottom: 24px;
+        }
+
+        /* Review Card */
+        .review-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .review-card.urgent {
+            border-color: #fca5a5;
+        }
+        .review-card.positive {
+            border-color: #86efac;
+        }
+        .review-card.mixed {
+            border-color: #fcd34d;
+        }
+
+        .review-card-header {
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        .review-card.urgent .review-card-header {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+        .review-card.positive .review-card-header {
+            background: #f0fdf4;
+            color: #16a34a;
+        }
+        .review-card.mixed .review-card-header {
+            background: #fffbeb;
+            color: #d97706;
+        }
+
+        .review-card-header .badge {
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .review-card-header .platform {
+            font-weight: 600;
+        }
+
+        .review-card-body { padding: 16px; }
+
+        .review-stars {
+            color: #f59e0b;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: #374151;
+            margin-bottom: 16px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .draft-response {
+            background: #f0f7ff;
+            border-left: 3px solid #3b82f6;
+            padding: 14px 16px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 12px;
+        }
+        .draft-response .draft-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3b82f6;
+            margin-bottom: 6px;
+        }
+        .draft-response .draft-text {
+            font-size: 14px;
+            color: #1e3a5f;
+            line-height: 1.7;
+        }
+
+        .action-hint {
+            font-size: 12px;
+            color: #9ca3af;
+            text-align: right;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        .btn-platform {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-platform:hover { background: #2563eb; }
+        .btn-copy {
+            background: transparent;
+            color: #3b82f6;
+            border: 1.5px solid #3b82f6;
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+            font-family: inherit;
+        }
+        .btn-copy:hover { background: #eff6ff; }
+        @media (max-width: 500px) {
+            .action-buttons { flex-direction: column; align-items: stretch; }
+            .action-buttons a, .action-buttons button { text-align: center; }
+        }
+
+        /* Question Card */
+        .question-card {
+            border: 1px solid #fca5a5;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .question-card-header {
+            background: #fef2f2;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .question-card-header .badge {
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #dc2626;
+        }
+        .question-card-header .platform {
+            font-weight: 600;
+            font-size: 13px;
+            color: #dc2626;
+        }
+        .question-card-body { padding: 16px; }
+        .question-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+        .question-status {
+            font-size: 12px;
+            color: #ef4444;
+            margin-bottom: 14px;
+        }
+
+        /* Summary */
+        .summary-box {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 28px;
+        }
+        .summary-box h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a2e;
+        }
+        .summary-list {
+            list-style: none;
+            padding: 0;
+        }
+        .summary-list li {
+            font-size: 14px;
+            color: #374151;
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .summary-list li .icon { flex-shrink: 0; }
+
+        /* Footer */
+        .email-footer {
+            text-align: center;
+            padding: 24px 32px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .email-footer p {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        .email-footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        @media (max-width: 500px) {
+            .content { padding: 20px 16px; }
+            .email-header { padding: 24px 16px 20px; }
+            .stat-item .num { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <div class="email-body">
+
+            <!-- Header -->
+            <div class="email-header">
+                <div class="logo">⚡ ReplyPulse</div>
+                <h1>Your Daily Review Digest</h1>
+                <div class="date">Thursday, February 13, 2026 — Legends Sports Bar</div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="num blue">5</div>
+                    <div class="lbl">New Reviews</div>
+                </div>
+                <div class="stat-item">
+                    <div class="num red">2</div>
+                    <div class="lbl">Need Attention</div>
+                </div>
+                <div class="stat-item">
+                    <div class="num yellow">1</div>
+                    <div class="lbl">Mixed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="num green">2</div>
+                    <div class="lbl">Positive</div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <div class="greeting">
+                    Good morning! Here's what people said about Legends in the last 24 hours. Draft responses are ready — review, tweak if needed, and post. 👇
+                </div>
+
+                <!-- Urgent: Negative Review -->
+                <div class="review-card urgent">
+                    <div class="review-card-header">
+                        <span class="badge">🔴 Needs Response</span>
+                        <span class="platform">TripAdvisor</span>
+                    </div>
+                    <div class="review-card-body">
+                        <div class="review-stars">★★★☆☆</div>
+                        <div class="review-text">"Despite a rich history and some outstanding pub grub in the past, Legends has taken a down-turn in the last 5 years or so. The food has become just average, and the cleanliness is not what it used to be (a stale beer smell permeates the place). On the bright side, they have lots of big screens and show all sorts of sporting events."</div>
+                        <div class="draft-response">
+                            <div class="draft-label">📝 Draft Response — Ready to Post</div>
+                            <div class="draft-text">Appreciate the honest feedback. You're right — we need to do better on the cleanliness and food side, and we know it. We've made some changes in the kitchen recently and tightened up our cleaning. Hopefully you'll give us another shot and see the difference. Your next appetizer is on us if you do — just mention this review at the bar.</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-copy" onclick="var t=this.closest('.review-card-body').querySelector('.draft-text').innerText;navigator.clipboard.writeText(t);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Response',1500)">Copy Response</button>
+                            <a class="btn-platform" href="https://www.tripadvisor.com/Restaurant_Review-g32648-d2343681-Reviews-Legends-Long_Beach_California.html" target="_blank">Reply on TripAdvisor</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Urgent: Unanswered Question -->
+                <div class="question-card">
+                    <div class="question-card-header">
+                        <span class="badge">🔴 Unanswered Question</span>
+                        <span class="platform">Yelp Q&A</span>
+                    </div>
+                    <div class="question-card-body">
+                        <div class="question-text">Q: "Is there a happy hour menu?"</div>
+                        <div class="question-status">⏳ No answers yet — this customer is waiting</div>
+                        <div class="draft-response">
+                            <div class="draft-label">📝 Draft Answer — Ready to Post</div>
+                            <div class="draft-text">Yeah we do! Happy hour is Monday through Friday, 3 to 6pm — discounted drafts and well drinks. We run daily food specials too. Give us a call at (562) 433-5743 if you want the latest, or just stop by.</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-copy" onclick="var t=this.closest('.question-card-body').querySelector('.draft-text').innerText;navigator.clipboard.writeText(t);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Response',1500)">Copy Response</button>
+                            <a class="btn-platform" href="https://www.yelp.com/biz/legends-long-beach#qa" target="_blank">Reply on Yelp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mixed Review -->
+                <div class="review-card mixed">
+                    <div class="review-card-header">
+                        <span class="badge">🟡 Mixed Feedback</span>
+                        <span class="platform">TripAdvisor</span>
+                    </div>
+                    <div class="review-card-body">
+                        <div class="review-stars">★★★★☆</div>
+                        <div class="review-text">"The burgers were very good and cooked perfectly. The salads were also large and very well prepared. The beer was cold and a good selection. The wait staff needs to eliminate the table side food auction."</div>
+                        <div class="draft-response">
+                            <div class="draft-label">📝 Draft Response — Ready to Post</div>
+                            <div class="draft-text">Glad the burgers and salads hit right. And yeah, the "food auction" thing — fair point. We're working on that with the staff so plates land at the right table the first time. Appreciate you letting us know. Hope to see you back.</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-copy" onclick="var t=this.closest('.review-card-body').querySelector('.draft-text').innerText;navigator.clipboard.writeText(t);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Response',1500)">Copy Response</button>
+                            <a class="btn-platform" href="https://www.tripadvisor.com/Restaurant_Review-g32648-d2343681-Reviews-Legends-Long_Beach_California.html" target="_blank">Reply on TripAdvisor</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Positive Review 1 -->
+                <div class="review-card positive">
+                    <div class="review-card-header">
+                        <span class="badge">🟢 Positive</span>
+                        <span class="platform">Yelp</span>
+                    </div>
+                    <div class="review-card-body">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">"I ended up winning and got a T-shirt with a cold Modelo and it was perfect. Such a cool idea and so much fun. There is honestly nothing bad I can say about Legends. After all these years it is still one of the best spots in Long Beach and I will always come back."</div>
+                        <div class="draft-response">
+                            <div class="draft-label">📝 Draft Response — Ready to Post</div>
+                            <div class="draft-text">Ha, congrats on the win — glad you enjoyed the shirt and the Modelo. Really appreciate hearing that after all these years you're still coming through. That means a lot to us. See you next time.</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-copy" onclick="var t=this.closest('.review-card-body').querySelector('.draft-text').innerText;navigator.clipboard.writeText(t);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Response',1500)">Copy Response</button>
+                            <a class="btn-platform" href="https://www.yelp.com/biz/legends-long-beach" target="_blank">Reply on Yelp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Positive Review 2 -->
+                <div class="review-card positive">
+                    <div class="review-card-header">
+                        <span class="badge">🟢 Positive</span>
+                        <span class="platform">TripAdvisor</span>
+                    </div>
+                    <div class="review-card-body">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">"The venue is large and features many T.V. screens covering many sports venues at once. Crowd was busy watching the many screens. Staff was friendly and attentive to all guests needs."</div>
+                        <div class="draft-response">
+                            <div class="draft-label">📝 Draft Response — Ready to Post</div>
+                            <div class="draft-text">Appreciate that. The staff really does try to stay on top of it even when the place is packed on game day. Glad you had a good time — come back anytime.</div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-copy" onclick="var t=this.closest('.review-card-body').querySelector('.draft-text').innerText;navigator.clipboard.writeText(t);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Response',1500)">Copy Response</button>
+                            <a class="btn-platform" href="https://www.tripadvisor.com/Restaurant_Review-g32648-d2343681-Reviews-Legends-Long_Beach_California.html" target="_blank">Reply on TripAdvisor</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Summary -->
+                <div class="summary-box">
+                    <h3>📋 Today's Priority Actions</h3>
+                    <ul class="summary-list">
+                        <li><span class="icon">1️⃣</span> Respond to the negative TripAdvisor review about food quality & cleanliness</li>
+                        <li><span class="icon">2️⃣</span> Answer the happy hour question on Yelp — this is a potential customer waiting</li>
+                        <li><span class="icon">3️⃣</span> Thank the two 5-star reviewers — builds loyalty and encourages more positive reviews</li>
+                        <li><span class="icon">4️⃣</span> Address the "food auction" note — shows you listen to constructive feedback</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="email-footer">
+                <p>Powered by <a href="https://replypulse.io">ReplyPulse</a> · Your reviews, handled.</p>
+                <p style="margin-top: 6px;">Questions? Reply to this email or reach us at hello@replypulse.io</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

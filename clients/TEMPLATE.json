@@ -1,0 +1,27 @@
+{
+  "business_name": "",
+  "contact_name": "",
+  "contact_email": "",
+  "phone": "",
+  "address": "",
+  "city": "",
+  "state": "",
+  "plan": "starter",
+  "platforms": {
+    "yelp": "",
+    "google_maps": "",
+    "tripadvisor": "",
+    "facebook": ""
+  },
+  "competitors": [],
+  "brand_voice": "Friendly, professional, appreciative. Address concerns with empathy. Keep responses concise — 2-4 sentences max.",
+  "owner_name": "",
+  "common_responses": {
+    "late_food": "",
+    "pricing_complaint": "",
+    "great_experience": ""
+  },
+  "started": "",
+  "last_scan": "",
+  "status": "active"
+}

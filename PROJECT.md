@@ -60,14 +60,16 @@ Monthly subscriptions:
 
 ## Progress
 
-### 2025-02-13
+### 2026-02-13
 - ✅ Landing page built (index.html, style.css, app.js)
 - ✅ GitHub repo created and pushed
 - ✅ Domain purchased (replypulse.io)
-- ⬜ Deploy to Vercel
-- ⬜ Connect custom domain
-- ⬜ Hook up form
-- ⬜ Build audit generator
+- ✅ Deployed to Vercel + custom domain connected
+- ✅ Formspree contact form hooked up
+- ✅ Brave Search API configured
+- ✅ Free audit generator built + tested (Legends Sports Bar)
+- ⬜ Cold outreach email templates
+- ⬜ Land first paying client
 
 ---
 

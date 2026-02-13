@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Review Audit — Legends Sports Bar | ReplyPulse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a0f1c;
+            --dark: #111827;
+            --card: #1a2035;
+            --accent: #3b82f6;
+            --red: #ef4444;
+            --yellow: #f59e0b;
+            --green: #22c55e;
+            --gray: #9ca3af;
+            --white: #f9fafb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        .header .date {
+            color: var(--gray);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2 .icon {
+            font-size: 24px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+
+        .stat {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat .number {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .stat .label {
+            font-size: 13px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat.red .number { color: var(--red); }
+        .stat.yellow .number { color: var(--yellow); }
+        .stat.green .number { color: var(--green); }
+        .stat.blue .number { color: var(--accent); }
+
+        .platform-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .platform-row:last-child {
+            border-bottom: none;
+        }
+
+        .platform-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .platform-detail {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stars {
+            color: var(--yellow);
+            font-size: 16px;
+        }
+
+        .alert-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+        }
+
+        .alert-box h3 {
+            color: var(--red);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .alert-box p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .opportunity-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+        }
+
+        .opportunity-box h3 {
+            color: var(--green);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .opportunity-box p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .review-example {
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid var(--red);
+            padding: 16px 20px;
+            margin: 12px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .review-example .review-stars {
+            color: var(--yellow);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .review-example .review-text {
+            font-size: 14px;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .review-example .review-meta {
+            font-size: 12px;
+            color: rgba(255,255,255,0.3);
+            margin-top: 8px;
+        }
+
+        .review-example .response-status {
+            font-size: 12px;
+            color: var(--red);
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .issue-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .issue-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .issue-list li .bullet {
+            color: var(--red);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.05));
+            border: 1px solid rgba(59,130,246,0.3);
+            border-radius: 16px;
+            padding: 40px 32px;
+            margin-top: 48px;
+        }
+
+        .cta-section h2 {
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            font-size: 15px;
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .cta-button:hover {
+            background: #2563eb;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 24px; }
+            .stat .number { font-size: 28px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">⚡ ReplyPulse — Free Review Audit</div>
+            <h1>Legends Sports Bar</h1>
+            <div class="subtitle">5236 E 2nd St, Long Beach, CA 90803</div>
+            <div class="date">Report generated February 13, 2026</div>
+        </div>
+
+        <!-- Overview Stats -->
+        <div class="section">
+            <h2><span class="icon">📊</span> Review Snapshot</h2>
+            <div class="stats-grid">
+                <div class="stat blue">
+                    <div class="number">1,200+</div>
+                    <div class="label">Total Reviews</div>
+                </div>
+                <div class="stat yellow">
+                    <div class="number">3.9</div>
+                    <div class="label">Avg Rating</div>
+                </div>
+                <div class="stat red">
+                    <div class="number">4</div>
+                    <div class="label">Platforms Found</div>
+                </div>
+                <div class="stat red">
+                    <div class="number">Low</div>
+                    <div class="label">Response Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platform Breakdown -->
+        <div class="section">
+            <h2><span class="icon">🌐</span> Platform Breakdown</h2>
+            <div class="card">
+                <div class="platform-row">
+                    <div>
+                        <div class="platform-name">Yelp</div>
+                        <div class="platform-detail">1,135 reviews • Primary review source</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="platform-row">
+                    <div>
+                        <div class="platform-name">TripAdvisor</div>
+                        <div class="platform-detail">41 reviews • Ranked #167 of 742 restaurants</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                        <span style="color: var(--gray); font-size: 14px;">3.9</span>
+                    </div>
+                </div>
+                <div class="platform-row">
+                    <div>
+                        <div class="platform-name">Google</div>
+                        <div class="platform-detail">Estimated 200+ reviews</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★☆</span>
+                    </div>
+                </div>
+                <div class="platform-row">
+                    <div>
+                        <div class="platform-name">Facebook</div>
+                        <div class="platform-detail">7,949 likes • 41,642 check-ins</div>
+                    </div>
+                    <div class="rating">
+                        <span style="color: var(--gray); font-size: 14px;">Active presence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Findings -->
+        <div class="section">
+            <h2><span class="icon">🔍</span> Key Findings</h2>
+
+            <div class="alert-box">
+                <h3>⚠️ Low Owner Response Rate</h3>
+                <p>Across 1,200+ reviews on multiple platforms, Legends has minimal visible owner/management responses. Negative reviews — including complaints about food quality, cleanliness, and service — appear to go unanswered. Each unanswered negative review is seen by hundreds of potential customers.</p>
+            </div>
+
+            <div class="alert-box">
+                <h3>⚠️ Recurring Negative Themes Going Unaddressed</h3>
+                <p>Multiple reviewers cite declining food quality, cleanliness concerns ("stale beer smell"), and inconsistent service. Without management responses, these narratives compound and shape the public perception of the business.</p>
+            </div>
+
+            <div class="alert-box">
+                <h3>⚠️ Unanswered Questions on Yelp</h3>
+                <p>Customer questions like "Is there a happy hour menu?" sit unanswered on the Yelp Q&A section. These are potential customers actively looking for reasons to visit — and getting silence.</p>
+            </div>
+        </div>
+
+        <!-- Sample Unanswered Reviews -->
+        <div class="section">
+            <h2><span class="icon">💬</span> Sample Unanswered Reviews</h2>
+            <div class="card">
+                <div class="review-example">
+                    <div class="review-stars">★★★☆☆</div>
+                    <div class="review-text">"Despite a rich history and some outstanding pub grub in the past, Legends has taken a down-turn in the last 5 years or so. The food has become just average, and the cleanliness is not what it used to be (a stale beer smell permeates the place)."</div>
+                    <div class="review-meta">TripAdvisor • Recent</div>
+                    <div class="response-status">❌ No owner response</div>
+                </div>
+
+                <div class="review-example">
+                    <div class="review-stars">★★★★☆</div>
+                    <div class="review-text">"The burgers were very good and cooked perfectly. The salads were also large and very well prepared. The wait staff needs to eliminate the table side food auction."</div>
+                    <div class="review-meta">TripAdvisor</div>
+                    <div class="response-status">❌ No owner response — missed chance to thank a mostly positive review</div>
+                </div>
+
+                <div class="review-example">
+                    <div class="review-stars">★★★★☆</div>
+                    <div class="review-text">"Upstairs beer tasting (special nights with happy hour) — March tasting for $20 (overpriced)"</div>
+                    <div class="review-meta">TripAdvisor</div>
+                    <div class="response-status">❌ No owner response — "overpriced" perception left unchallenged</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What This Is Costing You -->
+        <div class="section">
+            <h2><span class="icon">💰</span> What This Is Costing Legends</h2>
+            <div class="card">
+                <ul class="issue-list">
+                    <li>
+                        <span class="bullet">→</span>
+                        <span><strong>Lost revenue from unanswered negative reviews.</strong> Harvard Business School research shows that a one-star increase on Yelp leads to a 5-9% increase in revenue. Responding to reviews is the fastest way to influence ratings.</span>
+                    </li>
+                    <li>
+                        <span class="bullet">→</span>
+                        <span><strong>Negative narratives are compounding.</strong> When multiple reviewers mention "declining quality" and no one responds, it becomes the dominant story. Future customers read these and go elsewhere.</span>
+                    </li>
+                    <li>
+                        <span class="bullet">→</span>
+                        <span><strong>Positive reviewers feel ignored.</strong> Customers who leave 4-5 star reviews and get no acknowledgment are less likely to return or recommend. A simple "thank you" builds loyalty.</span>
+                    </li>
+                    <li>
+                        <span class="bullet">→</span>
+                        <span><strong>Unanswered Yelp questions lose walk-ins.</strong> Someone asked about happy hour — that's a customer ready to visit. Silence sends them to a competitor.</span>
+                    </li>
+                    <li>
+                        <span class="bullet">→</span>
+                        <span><strong>Competitors who respond are winning.</strong> Other Long Beach sports bars actively manage their reviews. In a market with 742+ restaurants, every unanswered review is a competitive disadvantage.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Opportunities -->
+        <div class="section">
+            <h2><span class="icon">✅</span> Quick Wins</h2>
+
+            <div class="opportunity-box">
+                <h3>Respond to all negative reviews within 24 hours</h3>
+                <p>Acknowledge the concern, apologize, and offer to make it right. This alone can turn detractors into repeat customers — and shows future readers that management cares.</p>
+            </div>
+
+            <div class="opportunity-box">
+                <h3>Thank every positive reviewer</h3>
+                <p>A brief, personalized thank-you encourages repeat visits and signals to future customers that this is a business that values its patrons.</p>
+            </div>
+
+            <div class="opportunity-box">
+                <h3>Answer all Yelp Q&A questions</h3>
+                <p>These are free leads — people actively considering visiting. Answer them promptly with helpful, inviting responses.</p>
+            </div>
+
+            <div class="opportunity-box">
+                <h3>Monitor all 4 platforms daily</h3>
+                <p>Reviews come in across Yelp, Google, TripAdvisor, and Facebook. Without daily monitoring, negative reviews can sit for weeks or months before anyone notices.</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2>Let ReplyPulse Handle This For You</h2>
+            <p>We monitor every review across every platform, draft on-brand responses, and deliver them to you in a daily morning digest. You approve, we post. Simple.</p>
+            <a href="https://replypulse.io" class="cta-button">See Our Plans →</a>
+            <p style="margin-top: 16px; font-size: 13px;">Or reply to this email to schedule a free 15-minute walkthrough.</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 ReplyPulse · replypulse.io · hello@replypulse.io</p>
+            <p style="margin-top: 8px;">This report was generated from publicly available review data.</p>
+        </div>
+    </div>
+</body>
+</html>
