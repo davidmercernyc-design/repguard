@@ -1,4 +1,4 @@
-# ReplyPulse — Daily Operations Workflow
+# RepGuard — Daily Operations Workflow
 
 ## How It Works
 

@@ -1,7 +1,7 @@
-# ReplyPulse
+# RepGuard
 
-**Domain:** replypulse.io
-**GitHub:** github.com/davidmercernyc-design/replypulse
+**Domain:** replypulse.io (needs to update to repguard.io)
+**GitHub:** github.com/davidmercernyc-design/replypulse (repo can stay or rename)
 **Hosting:** Vercel
 **Owner:** Shant
 
@@ -9,36 +9,33 @@
 
 ## What It Is
 
-A done-for-you review monitoring and response service for local businesses. We track every review across Google, Yelp, TripAdvisor, and social media — then draft on-brand responses delivered in a daily digest.
+RepGuard monitors every mention of your business across Google, Yelp, TripAdvisor, and social media. We alert you instantly when something needs attention — and draft responses you can approve and post.
 
 ## Target Customer
 
-Local businesses (restaurants, salons, clinics, auto shops, gyms, etc.) with 1-10 locations. Too busy to track reviews, too small for an agency.
+Local businesses (restaurants, salons, clinics, auto shops, gyms, etc.) with 1-10 locations. Too busy to check every platform manually.
 
 ## Revenue Model
 
 Monthly subscriptions:
-- **Starter** $99/mo — Google + Yelp, daily digest, draft responses
-- **Growth** $199/mo — All platforms + competitors + weekly report + negative alerts (Most Popular)
-- **Premium** $499/mo — Everything + we post on their behalf + monthly strategy call + multi-location
+- **Starter** $79/mo — Google + Yelp monitoring, negative alerts, response drafts
+- **Growth** $149/mo — All platforms + competitor tracking + priority support
+- **Premium** $349/mo — Everything + we post for you + monthly strategy call + multi-location
 
 ## Sales Strategy
 
-**Lead magnet:** Free Review Audit — we scan their reviews and show them every unanswered one from the last 30 days. Creates urgency.
+**Lead magnet:** Free Reputation Audit — we scan their reviews and show them what they're missing. Creates urgency.
 
 **Acquisition channels:**
-- Cold email outreach to restaurant owners
+- Cold email outreach to business owners
 - Free audit requests from the website
-- Eventually: SEO, referrals, partnerships with restaurant consultants
+- Eventually: SEO, referrals, partnerships
 
 ## Goals
 
-- [ ] Deploy site to Vercel + connect replypulse.io
-- [ ] Hook up contact form (Formspree)
-- [ ] Build free audit generator (scrape Google/Yelp reviews for a given restaurant)
-- [ ] Create cold outreach email templates
+- [ ] Update domain to repguard.io
+- [ ] Cold outreach email templates
 - [ ] Land first paying client
-- [ ] Build delivery pipeline (daily digest system for active clients)
 - [ ] 5 clients → $1,500-3,000/mo
 - [ ] 20 clients → $6,000-12,000/mo
 
@@ -46,28 +43,29 @@ Monthly subscriptions:
 
 - Domain: ~$30/yr
 - Hosting: Free (Vercel)
-- Email: TBD (probably Google Workspace ~$7/mo for hello@replypulse.io)
+- Email: Google Workspace ~$7/mo for hello@repguard.io
 - API costs for scraping: Minimal
 
 ## Decisions Log
 
 | Date | Decision | Reasoning |
 |------|----------|-----------|
-| 2025-02-13 | Niche: Local businesses | High volume, easy to sell, obvious ROI — broadened from restaurants-only |
-| 2025-02-13 | Name: ReplyPulse | Clear, professional, scalable beyond restaurants |
-| 2025-02-13 | replypulse.io domain | .io is clean and tech-forward |
-| 2025-02-13 | Vercel + GitHub for hosting | Free, simple, auto-deploys on push |
+| 2025-02-13 | Niche: Local businesses | High volume, easy to sell, obvious ROI |
+| 2026-02-13 | Name: RepGuard | Protection + enhancement angle |
+| 2026-02-13 | Delivery: Alert-based | No daily emails — only when something needs attention |
+| 2026-02-13 | Pricing: $79/$149/$349 | Adjusted down from $99/$199/$499 |
 
 ## Progress
 
 ### 2026-02-13
-- ✅ Landing page built (index.html, style.css, app.js)
-- ✅ GitHub repo created and pushed
-- ✅ Domain purchased (replypulse.io)
-- ✅ Deployed to Vercel + custom domain connected
+- ✅ Landing page built
+- ✅ GitHub repo created
+- ✅ replypulse.io domain purchased
+- ✅ Deployed to Vercel
 - ✅ Formspree contact form hooked up
 - ✅ Brave Search API configured
-- ✅ Free audit generator built + tested (Legends Sports Bar)
+- ✅ Free audit generator built + tested
+- ⬜ Update domain to repguard.io
 - ⬜ Cold outreach email templates
 - ⬜ Land first paying client
 
@@ -75,4 +73,5 @@ Monthly subscriptions:
 
 ## Notes
 
-_Add anything here — ideas, feedback, lessons learned._
+- Need to purchase repguard.io domain
+- Logo: shield + checkmark or similar
