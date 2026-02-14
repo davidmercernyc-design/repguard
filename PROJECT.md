@@ -9,11 +9,11 @@
 
 ## What It Is
 
-A done-for-you review monitoring and response service for restaurants and hospitality businesses. We track every review across Google, Yelp, TripAdvisor, and social media — then draft on-brand responses delivered in a daily digest.
+A done-for-you review monitoring and response service for local businesses. We track every review across Google, Yelp, TripAdvisor, and social media — then draft on-brand responses delivered in a daily digest.
 
 ## Target Customer
 
-Restaurants and hospitality businesses with 2-10 locations. Too busy to track reviews, too small for an agency.
+Local businesses (restaurants, salons, clinics, auto shops, gyms, etc.) with 1-10 locations. Too busy to track reviews, too small for an agency.
 
 ## Revenue Model
 
@@ -53,7 +53,7 @@ Monthly subscriptions:
 
 | Date | Decision | Reasoning |
 |------|----------|-----------|
-| 2025-02-13 | Niche: Restaurants | High volume, easy to sell, obvious ROI |
+| 2025-02-13 | Niche: Local businesses | High volume, easy to sell, obvious ROI — broadened from restaurants-only |
 | 2025-02-13 | Name: ReplyPulse | Clear, professional, scalable beyond restaurants |
 | 2025-02-13 | replypulse.io domain | .io is clean and tech-forward |
 | 2025-02-13 | Vercel + GitHub for hosting | Free, simple, auto-deploys on push |
