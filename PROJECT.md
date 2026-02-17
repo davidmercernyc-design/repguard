@@ -1,6 +1,6 @@
-# RepWatch
+# ReviewDefender
 
-**Domain:** repwatch.io (to purchase)
+**Domain:** reviewdefender.io (purchased)
 **GitHub:** github.com/davidmercernyc-design/repwatch
 **Hosting:** Vercel
 **Owner:** Shant
@@ -9,7 +9,7 @@
 
 ## What It Is
 
-RepWatch watches your business reputation so you don't have to.
+ReviewDefender watches your business reputation so you don't have to.
 
 **Simple:** We scan Google, Yelp, TripAdvisor, and social media. You get an alert only when something needs attention.
 
@@ -53,9 +53,9 @@ Local businesses (restaurants, salons, clinics, auto shops, gyms, etc.) with 1-1
 
 ## Goals
 
-- [ ] Purchase repwatch.io domain
+- [ ] Purchase reviewdefender.io domain
 - [ ] Connect domain to Vercel
-- [ ] Set up hello@repwatch.io email
+- [ ] Set up hello@reviewdefender.io email
 - [ ] Cold outreach email templates
 - [ ] Land first paying client
 - [ ] 5 clients → $1,500-3,000/mo
@@ -65,7 +65,7 @@ Local businesses (restaurants, salons, clinics, auto shops, gyms, etc.) with 1-1
 
 - Domain: ~$15-30/yr
 - Hosting: Free (Vercel)
-- Email: Google Workspace ~$7/mo for hello@repwatch.io
+- Email: Google Workspace ~$7/mo for hello@reviewdefender.io
 - API costs for scraping: Minimal
 
 ## Decisions Log
@@ -73,7 +73,7 @@ Local businesses (restaurants, salons, clinics, auto shops, gyms, etc.) with 1-1
 | Date | Decision | Reasoning |
 |------|----------|-----------|
 | 2025-02-13 | Niche: Local businesses | High volume, easy to sell, obvious ROI |
-| 2026-02-13 | Name: RepWatch | We watch their reputation - monitoring + protection |
+| 2026-02-13 | Name: ReviewDefender | We watch their reputation - monitoring + protection |
 | 2026-02-13 | Delivery: Alert-based | No daily emails — only when something needs attention |
 | 2026-02-13 | Pricing: $79/$149/$349 | Adjusted down from $99/$199/$499 |
 
@@ -86,7 +86,7 @@ Local businesses (restaurants, salons, clinics, auto shops, gyms, etc.) with 1-1
 - ✅ Formspree contact form hooked up
 - ✅ Brave Search API configured
 - ✅ Free audit generator built + tested
-- ⬜ Purchase repwatch.io domain
+- ⬜ Purchase reviewdefender.io domain
 - ⬜ Connect domain to Vercel
 - ⬜ Cold outreach email templates
 - ⬜ Land first paying client
